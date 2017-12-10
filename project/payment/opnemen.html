@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="no-js" lang='nl'>
+
+<head>
+    <title>Bestelling opnemen</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 2em;
+            background-color: dodgerblue;
+        }
+
+        .container {
+            background-color: whitesmoke;
+            border-radius: 15px;
+        }
+
+        footer {
+            margin-left: 20px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Voer de bestelling in</h1>
+        <form action="bestelling.php" method="post">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label class="control-label">Tafelnummer?:</label>
+                    <input class="form-control" type="input" min="0" name="tafel" required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Cola:</label>
+                    <input id="colorful" class="form-control" type="number" value="0" min="0" max="10" name="cola" />
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Cola Light:</label>
+                    <input id="colorful1" class="form-control" type="number" value="0" min="0" max="10" name="light" />
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">Water:</label>
+                    <input id="colorful3" class="form-control" type="number" value="0" min="0" max="10" name="water" />
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">Bruiswater:</label>
+                    <input id="colorful4" class="form-control" type="number" value="0" min="0" max="10" name="bruis" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Bier:</label>
+                    <input id="colorful5" class="form-control" type="number" value="0" min="0" max="10" name="bier" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Cara:</label>
+                    <input id="colorful6" class="form-control" type="number" value="0" min="0" max="10" name="cara" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Kriek:</label>
+                    <input id="colorful10" class="form-control" type="number" value="0" min="0" max="10" name="kriek" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Hoegaarden:</label>
+                    <input id="colorful2" class="form-control" type="number" value="0" min="0" max="10" name="hoegaarden" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Duvel:</label>
+                    <input id="colorful9" class="form-control" type="number" value="0" min="0" max="10" name="duvel" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Koffie:</label>
+                    <input id="colorful12" class="form-control" type="number" value="0" min="0" max="10" name="koffie" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Thee:</label>
+                    <input id="colorful11" class="form-control" type="number" value="0" min="0" max="10" name="thee" />
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Rode wijn:</label>
+                    <input id="colorful7" class="form-control" type="number" value="0" min="0" max="10" name="rood" />
+                    <label for="flesrood">fles?</label>
+                    <input type="checkbox" name="flesrood" value="fles">
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Witte wijn:</label>
+                    <input id="colorful8" class="form-control" type="number" value="0" min="0" max="10" name="wit" />
+                    <label for="fleswit">fles?</label>
+                    <input type="checkbox" name="fleswit" value="fles">
+                </div>
+                <div class="form-group col-md-3">
+                    <h4>Indien een fles wijn is genomen hoeveel glazen mogen hier dan bij?</h4>
+                    <label for="aantal_glazen">Hoeveel glazen bij de fles?</label>
+                    <input type="number" name="aantal_glazen" id="glazen" />
+                </div>
+            </div>
+            <textarea name="opmerking" rows="4" cols="50"></textarea>
+            <footer>
+                <input type="submit" value="Stuur door" class="btn btn-primary" />
+                <a href="opnemeneten.html" class="btn btn-danger">Eten Bestellen</a>
+            </footer>
+        </form>
+
+    </div>
+    <script src="js/Jquery-min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-number-input.js"></script>
+    <script>
+        // Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
+        $("[name='checkbox2']").change(function() {
+            if (!confirm('Do you wanna cancel me!')) {
+                this.checked = true;
+            }
+        });
+        $('#colorful').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful1').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful2').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful3').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful4').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful5').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful6').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful7').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful8').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful9').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful10').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful11').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+        $('#colorful12').bootstrapNumber({
+            upClass: 'success',
+            downClass: 'danger'
+        });
+
+    </script>
+
+
+</body>
+
+</html>

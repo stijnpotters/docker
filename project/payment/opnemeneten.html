@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="no-js" lang='nl'>
+<head>
+    <title>Bestelling opnemen</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<style>
+		body {
+			padding-top: 2em;
+                        background-color: darkred;
+		}
+                .container{
+                    background-color: whitesmoke;
+                    border-radius: 15px;
+                }
+                footer{
+                    margin-left: 20px;
+                    margin-top: 15px;
+                    margin-bottom: 25px;
+                }
+                .row{
+                    margin-left: 10px;
+                }
+                .textbox{
+                    margin-left: 10px;
+                }
+	</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Voer de bestelling in</h1>
+<form action="bestellingeten.php" method="post">
+	<div class="row">
+            
+                <div class="col-md-12">
+				    <label class="control-label">Tafelnummer?:</label>
+						<input class="form-control" type="text" name="tafel" required/>
+						</div>
+             
+                        <div class="row">
+					<div class="form-group col-md-3">
+						<label class="control-label">Grote spaghetti:</label>
+						<input id="colorful" class="form-control" type="number" value="0" min="0" max="30" name="groot"  />
+					
+                    </div>
+					<div class="form-group col-md-3">
+						<label class="control-label">Kleine spaghetti:</label>
+						<input id="colorful1" class="form-control" type="number" value="0" min="0" max="30" name="klein" />
+					</div>
+
+					<div class="form-group col-md-3">
+						<label class="control-label">Vegitarische spaghetti:</label>
+						<input id="colorful2" class="form-control" type="number" value="0" min="0" max="30" name="vegi" />
+					</div>
+                    </div>
+                    </div>
+    <div class="textbox">
+                     <p>Opmerking:</p>
+                     <textarea name="opmerking" rows="4" cols="50"></textarea>
+    </div>
+                     <footer>
+                    <input type="submit" value="Stuur door" class="btn btn-warning"/>
+                    <a href="opnemen.html" class="btn btn-primary">Drinken bestellen</a>
+                     </footer>
+	</form>
+		
+	</div>
+<script src="js/Jquery-min.js" ></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
+<script src="bootstrap-number-input.js" ></script>
+<script>
+// Remember set you events before call bootstrapSwitch or they will fire after bootstrapSwitch's events
+$("[name='checkbox2']").change(function() {
+	if(!confirm('Do you wanna cancel me!')) {
+		this.checked = true;
+	}
+});
+$('#colorful').bootstrapNumber({
+	upClass: 'success',
+	downClass: 'danger'
+});
+    $('#colorful1').bootstrapNumber({
+	upClass: 'success',
+	downClass: 'danger'
+});
+        $('#colorful2').bootstrapNumber({
+	upClass: 'success',
+	downClass: 'danger'
+});
+</script>
+
+
+</body>
+</html>

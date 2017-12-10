@@ -1,0 +1,12 @@
+ CREATE USER 'root'@'%' IDENTIFIED BY 'linux';
+ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('linux');
+ CREATE USER 'php'@'%' IDENTIFIED BY 'php123';
+ GRANT ALL PRIVILEGES ON *.* TO 'php'@'%' WITH GRANT OPTION;
+ use `scouts`;
+ CREATE TABLE IF NOT EXISTS `drinken` (`drinkId` smallint(6) NOT NULL,`cola` tinyint(4) NOT NULL,`light` tinyint(4) NOT NULL,`water` tinyint(4) NOT NULL,`bruis` tinyint(4) NOT NULL,`bier` tinyint(4) NOT NULL,`cara` tinyint(4) NOT NULL,`hoegaarden` tinyint(4) NOT NULL,`kriek` tinyint(4) NOT NULL,`duvel` tinyint(4) NOT NULL,`wijnwit` tinyint(4) NOT NULL,`wijnrood` tinyint(4) NOT NULL,`koffie` tinyint(4) NOT NULL,`thee` tinyint(4) NOT NULL,`fles` text,`glazen` tinyint(4) DEFAULT NULL,`opmerking` text,`tafel` varchar(6) NOT NULL,`gemaakt` tinyint(1) NOT NULL) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=latin1;
+ CREATE TABLE IF NOT EXISTS `eten` (`etenId` smallint(6) NOT NULL,`groot` tinyint(4) NOT NULL,`klein` tinyint(4) NOT NULL,`vegi` tinyint(4) NOT NULL,`opmerking` text NOT NULL,`tafel` varchar(6) NOT NULL,`gemaakt` tinyint(1) NOT NULL) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+ ALTER TABLE `drinken` ADD PRIMARY KEY (`drinkId`);
+ ALTER TABLE `eten` ADD PRIMARY KEY (`etenId`);
+ ALTER TABLE `drinken` MODIFY `drinkId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+ ALTER TABLE `eten` MODIFY `etenId` smallint(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;

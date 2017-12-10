@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  project:
+     build: ./project
+     ports:
+      - "80:80"
+      - "3306:3306"
+     networks:
+      - local
+     volumes:
+       - /home/stijn/project/payment:/var/www/html
+       - /var/log/httpd:/var/log/httpd
+       - /var/lib/mysql:/var/lib/mysql
+       - /var/log/mysql:/var/log/mysql
+     tty: true
+     
+  phpmyadmin:
+     image: phpmyadmin/phpmyadmin
+     links:
+      - project
+     ports:
+      - "8000:80"
+     environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: linux
+      PMA_HOST: mysql
+      PMA_ARBITRARY: 1
+     networks:
+      - local
+    
+  portainer:
+    image: portainer/portainer
+    ports:
+      - "9000:9000"
+    networks:
+      - local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+    local:
+      driver: bridge
