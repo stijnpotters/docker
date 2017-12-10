@@ -2,7 +2,7 @@ version: '3'
 
 services:
   project:
-     build: ./project
+     build: https://github.com/stijnpotters/docker/blob/master/project/Dockerfile
      ports:
       - "80:80"
       - "3306:3306"
